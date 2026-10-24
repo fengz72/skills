@@ -18,6 +18,7 @@ description: 分析 NPU 推理 profiling 和执行图，定位搬运、计算、
 - 有 profiling，需判断时间消耗与优化优先级：读[采集与瓶颈分解](references/profiling.md)。包含推荐/打分模型的输入搬运、Embedding/Gather、小算子、Host 调度和多实例分析。
 - 有源图或 GE Build 图，需关联 kernel、查找重复模式：读[图与 kernel 归因](references/graph-attribution.md)。图为可选输入，纯 ONNX 不要求 PyTorch modeling 脚本。
 - 需提出源图、GE pass、解析插件或运行时优化：读[GE 优化方法](references/ge-optimization.md)。接口与参数须核实目标安装版本。
+- 计算或内存成本可能受精度影响，且设计允许调整：读[低精度与混合精度](references/precision-optimization.md)，评估 FP16/BF16、局部转换及 FP32 回退；保持原有精度验收门槛，核对最终实际计算类型。
 - 正式测量遵循[统一测量约定](../npu-model-workflow/references/measurement.md)，精度与并发复验遵循[正确性约定](../npu-model-workflow/references/correctness.md)。
 
 ## 输出与交接

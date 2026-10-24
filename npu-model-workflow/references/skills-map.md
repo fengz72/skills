@@ -4,6 +4,7 @@
 |---|---|
 | 端到端推进、需求、角色调度、验收与交付 | [npu-model-workflow](../SKILL.md) |
 | 已有基线/profiling，分析搬运、计算、Host、重复结构并提出优化 | [npu-performance-analysis](../../npu-performance-analysis/SKILL.md) |
+| 在精度门槛内评估 FP16、BF16、局部降精度及 FP32 回退 | [低精度与混合精度](../../npu-performance-analysis/references/precision-optimization.md) |
 | 用户给延迟上限但不知道合理吞吐，估计资源容量并匹配历史经验 | [npu-performance-target](../../npu-performance-target/SKILL.md) |
 | GE 动态 shape、内存/地址、流或编译/执行崩溃 | [npu-ge-diagnose](../../npu-ge-diagnose/SKILL.md) |
 

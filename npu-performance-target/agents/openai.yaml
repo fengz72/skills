@@ -1,0 +1,3 @@
+interface:
+  display_name: "NPU 吞吐目标推荐"
+  short_description: "结合资源分析、历史案例和实测基线推荐延迟约束下的吞吐目标"

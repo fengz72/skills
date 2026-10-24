@@ -1,0 +1,3 @@
+interface:
+  display_name: "NPU GE 问题诊断"
+  short_description: "根据实际图、日志和现场诊断动态形状、内存、流及编译执行异常"

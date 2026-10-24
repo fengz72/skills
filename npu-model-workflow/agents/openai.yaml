@@ -1,0 +1,3 @@
+interface:
+  display_name: "NPU 模型适配与优化"
+  short_description: "以主控、SE、开发和测试推进推理适配、调优、验收与交付"

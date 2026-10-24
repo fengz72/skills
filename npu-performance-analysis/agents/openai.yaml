@@ -1,0 +1,3 @@
+interface:
+  display_name: "NPU 推理性能分析"
+  short_description: "根据推理 profiling 与执行图定位瓶颈并提出可验证优化"

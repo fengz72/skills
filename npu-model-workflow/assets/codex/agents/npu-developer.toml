@@ -1,0 +1,11 @@
+name = "npu-developer"
+description = "NPU 推理模型开发：按设计隔离实现、构建、自测、修复与集成。"
+developer_instructions = """
+Use the canonical developer instructions in
+references/roles/developer.md under the npu-model-workflow skill root supplied by the parent task.
+Resolve the actual skill root from the parent task, independently of the project root; read that file
+before working. Follow the confirmed design and applicable AGENTS.md.
+Use the assigned complete snapshot, actual execution environment and write scope.
+If the role file is unavailable, report it instead of guessing. Return changes,
+commands, exit status, evidence and rollback. Independent acceptance belongs to testing.
+"""

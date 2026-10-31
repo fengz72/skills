@@ -1,0 +1,4 @@
+interface:
+  display_name: "DSL 算子接入 GE"
+  short_description: "DSL 算子导出 AscendC，接入 GE、PyTorch/TorchAir、ONNX/OM"
+  default_prompt: "使用 $npu-dsl-ge-integration 分析这个 DSL 算子，导出 AscendC 源码并完成 GE 接入与验证。"

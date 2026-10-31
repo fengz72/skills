@@ -1,0 +1,20 @@
+"""Generate artifact-specific declarations and embed the exported TileLang CCE ELF."""
+import json
+import re
+from pathlib import Path
+root=Path(__file__).resolve().parent
+from cannbot_abi import prepare_cannbot_abi
+prepare_cannbot_abi(root)
+tile_meta=json.loads((root/'tilelang-export/manifest.json').read_text())
+if tile_meta['args'] != [524288, 'simt']:
+    raise ValueError('This smoke fixture expects the fixed SIMT vecadd specialization')
+host_ir=(root/'tilelang-export/host_ir.txt').read_text()
+launch=re.search(r'T\.call_packed\("main_kernel", A, B, C, (\d+), T\.int64\((\d+)\)\)',host_ir)
+if not launch:
+    raise ValueError('Unrecognized host launch IR; inspect the TileLang version before adapting this fixture')
+grid,ubuf=map(int,launch.groups())
+if grid<=0 or ubuf<=0:
+    raise ValueError('Invalid grid/dynamic UBUF size')
+(root/'tile_launch_metadata.json').write_text(json.dumps({'kernel':'main_kernel','grid':grid,'dyn_ubuf_bytes':ubuf,'elements':524288},indent=2)+'\n')
+binary=(root/'tilelang-export/kernel.aibin').read_bytes()
+(root/'tile_binary.h').write_text('#pragma once\n#include <cstdint>\nstatic constexpr uint32_t kTileGrid='+str(grid)+';\nstatic constexpr uint32_t kTileDynUbuf='+str(ubuf)+';\nalignas(16) static const uint8_t kTileBinary[]={\n'+','.join(str(b) for b in binary)+'\n};\n')
